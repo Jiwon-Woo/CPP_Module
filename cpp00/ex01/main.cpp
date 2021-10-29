@@ -3,7 +3,7 @@
 int	main()
 {
 	std::string	command;
-	PhoneBook	phone_book = new PhoneBook();
+	PhoneBook	phone_book = PhoneBook();
 
 	while (42)
 	{
@@ -15,9 +15,15 @@ int	main()
 			break;
 		}
 		else if (command == "ADD")
-			std::cout << C_GREN << "ADD" << C_NRML<< std::endl;
+			std::cout << C_GREN << "ADD" << C_NRML << std::endl;
 		else if (command == "SEARCH")
-			std::cout << C_AQUA << "SEARCH" << C_NRML << std::endl;
+		{
+			std::string	search;
+			std::cout << C_AQUA << "SEARCH : " << C_NRML;
+			std::getline(std::cin, search);
+			phone_book.search_contact(search[0]);
+			std::cout << std::endl;
+		}
 		else
 			std::cout << C_YLLW << "It's not a valid command: " << C_NRML << command << std::endl;
 	}

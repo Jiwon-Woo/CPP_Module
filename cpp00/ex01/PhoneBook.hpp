@@ -12,7 +12,7 @@ private:
 public:
 	PhoneBook();
 	void	add_contact(Contact contact);
-	void	search_contact(int index);
+	void	search_contact(char index);
 	~PhoneBook();
 };
 
