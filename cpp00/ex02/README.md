@@ -1,6 +1,8 @@
 # 19920104_091532.log 분석
 
-### create 로그
+<br>
+
+### Account()
 ```
 [19920104_091532] index:0;amount:42;created
 [19920104_091532] index:1;amount:54;created
@@ -127,7 +129,7 @@ std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) )
 ```
 <br>
 
-### close 로그
+### ~Account()
 ```
 [19920104_091532] index:0;amount:47;closed
 [19920104_091532] index:1;amount:785;closed
