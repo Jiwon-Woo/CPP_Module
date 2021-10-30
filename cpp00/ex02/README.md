@@ -1,4 +1,6 @@
-### `create` 로그
+# 19920104_091532.log 분석
+
+### create 로그
 ```
 [19920104_091532] index:0;amount:42;created
 [19920104_091532] index:1;amount:54;created
@@ -11,7 +13,7 @@
 ```
 <br>
 
-### `Account::displayAccountsInfos()`
+### Account::displayAccountsInfos()
 ```
 Account::displayAccountsInfos();
 ```
@@ -20,7 +22,7 @@ Account::displayAccountsInfos();
 ```
 <br>
 
-### `Account::displayStatus()`
+### Account::displayStatus()
 ```
 std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 ```
@@ -36,7 +38,7 @@ std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) )
 ```
 <br>
 
-### `Account::makeDeposit(int deposit)`
+### Account::makeDeposit(int deposit)
 ```
 for ( acc_int_t it( acc_begin, dep_begin );
 		it.first != acc_end && it.second != dep_end;
@@ -59,13 +61,13 @@ for ( acc_int_t it( acc_begin, dep_begin );
 
 <br>
 
-### `Account::displayAccountsInfos();`
+### Account::displayAccountsInfos();
 ```
 [19920104_091532] accounts:8;total:21524;deposits:8;withdrawals:0
 ```
 <br>
 
-### `Account::displayStatus()`
+### Account::displayStatus()
 ```
 std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 ```
@@ -81,7 +83,7 @@ std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) )
 ```
 <br>
 
-### `Account::makeWithdrawal(int withdrawal)`
+### Account::makeWithdrawal(int withdrawal)
 
 ```
 for ( acc_int_t it( acc_begin, wit_begin );
@@ -103,13 +105,13 @@ for ( acc_int_t it( acc_begin, wit_begin );
 ```
 <br>
 
-### `Account::displayAccountsInfos()`
+### Account::displayAccountsInfos()
 ```
 [19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6
 ```
 <br>
 
-### `Account::displayStatus()`
+### Account::displayStatus()
 ```
 std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 ```
@@ -125,7 +127,7 @@ std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) )
 ```
 <br>
 
-### `close` 로그
+### close 로그
 ```
 [19920104_091532] index:0;amount:47;closed
 [19920104_091532] index:1;amount:785;closed
