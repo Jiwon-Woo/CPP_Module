@@ -3,13 +3,11 @@
 PhoneBook::PhoneBook()
 {
 	this->contact_num = 0;
-	// for (int i = 0; i < 8; i++)
-	// 	this->contact[i] = Contact("hi", "hello", "i'm", "fine", "thank you");
 }
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "this is ~PhoneBook()" << std::endl;
+	// std::cout << "this is ~PhoneBook()" << std::endl;
 }
 
 void	PhoneBook::add_contact(Contact contact)
@@ -27,6 +25,20 @@ void	PhoneBook::add_contact(Contact contact)
 	}
 }
 
+void	PhoneBook::show_contact_info(int index)
+{
+	Contact	contact = this->contact[index - 1];
+
+	std::cout << "========================================================" << std::endl;
+	std::cout << "|  index  |  first name  |   last name  |    nickname  |" << std::endl;
+	std::cout << "========================================================" << std::endl;
+	std::cout << "|    " << index << "    |";
+	show_contact_fields(contact.get_first_name());
+	show_contact_fields(contact.get_last_name());
+	show_contact_fields(contact.get_nickname());
+	std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+}
+
 void	PhoneBook::show_contact_fields(std::string field)
 {
 	if (field.length() <= 10)
@@ -39,18 +51,13 @@ void	PhoneBook::search_contact(int index)
 {
 	if (index <= 0 || index > this->contact_num)
 	{
-		std::cout << C_AQUA << "Either the contact is not stored in this index, or the index value or format is invalid."
+		std::cout << C_AQUA << 
+			"Either the contact is not stored in this index, or the index value or format is invalid."
 			<< C_NRML << std::endl;
-		return ;
 	}
-	Contact	contact = this->contact[index - 1];
-	std::cout << "========================================================" << std::endl;
-	std::cout << "|  index  |  first name  |   last name  |    nickname  |" << std::endl;
-	std::cout << "========================================================" << std::endl;
-	std::cout << "|    " << index << "    |";
-	show_contact_fields(contact.get_first_name());
-	show_contact_fields(contact.get_last_name());
-	show_contact_fields(contact.get_nickname());
-	std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+	else
+	{
+		show_contact_info(index);
+	}
 	return;
 }

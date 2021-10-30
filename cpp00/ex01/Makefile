@@ -1,11 +1,10 @@
 NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror
 MAIN_C = main.cpp
-MAIN_H = main.hpp
 SOURCE = Contact.cpp PhoneBook.cpp
 OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME): $(MAIN_C) $(MAIN_H) $(OBJECT)
+$(NAME): $(MAIN_C) $(OBJECT)
 	clang++ $(MAIN_C) $(CFLAGS) -o $(NAME) $(OBJECT)
 $(OBJECT): $(SOURCE)
 	clang++ $(CFLAGS) -c $(SOURCE)

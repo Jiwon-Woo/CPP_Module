@@ -20,7 +20,7 @@ Contact::Contact()
 
 Contact::~Contact()
 {
-	std::cout << "this is ~Contact()" << std::endl;
+	// std::cout << "this is ~Contact()" << std::endl;
 }
 
 std::string	Contact::get_first_name()
