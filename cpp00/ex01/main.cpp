@@ -27,7 +27,7 @@ Contact	get_user_contact()
 	return Contact(add_fields[0], add_fields[1], add_fields[2], add_fields[3], add_fields[4]);
 }
 
-int	get_user_search_index()
+int	get_user_search_index(PhoneBook phone_book)
 {
 	std::string	str_index;
 	int			index = 0;
@@ -35,6 +35,9 @@ int	get_user_search_index()
 	std::cout << C_AQUA << "##################" << std::endl;
 	std::cout << "# SEARCH Contact #" << std::endl;
 	std::cout <<"##################" << C_NRML << std::endl;
+	phone_book.show_contact_header();
+	for (int i = 1; i <= phone_book.get_contact_num(); i++)
+		phone_book.show_contact_info(i);
 	std::cout << "Enter the index number : ";
 	if (std::getline(std::cin, str_index))
 		index = atoi(str_index.c_str());
@@ -63,7 +66,7 @@ int	main()
 		}
 		else if (command == "SEARCH")
 		{
-			user_index = get_user_search_index();
+			user_index = get_user_search_index(phone_book);
 			phone_book.search_contact(user_index);
 		}
 		else if (command != "")

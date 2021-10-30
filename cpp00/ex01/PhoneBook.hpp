@@ -23,7 +23,9 @@ public:
 	PhoneBook();
 	void	add_contact(Contact contact);
 	void	search_contact(int index);
+	int		get_contact_num();
 	void	show_contact_info(int index);
+	void	show_contact_header();
 	void	show_contact_fields(std::string field);
 	~PhoneBook();
 
