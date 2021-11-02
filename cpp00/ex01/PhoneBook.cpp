@@ -7,7 +7,6 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook()
 {
-	// std::cout << "this is ~PhoneBook()" << std::endl;
 }
 
 int		PhoneBook::get_contact_num()
