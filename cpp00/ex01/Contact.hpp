@@ -1,5 +1,5 @@
-#ifndef Contact_H
-# define Contact_H
+#ifndef CONTACT_H
+# define CONTACT_H
 
 # include <iostream>
 
