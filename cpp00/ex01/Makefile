@@ -1,19 +1,20 @@
 NAME = phonebook
-CFLAGS = -Wall -Wextra -Werror
-MAIN_C = main.cpp
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror
+MAIN = main.cpp
 SOURCE = Contact.cpp PhoneBook.cpp
 OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME): $(MAIN_C) $(OBJECT)
-	clang++ $(MAIN_C) $(CFLAGS) -o $(NAME) $(OBJECT)
+$(NAME): $(MAIN) $(OBJECT)
+	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJECT)
 $(OBJECT): $(SOURCE)
-	clang++ $(CFLAGS) -c $(SOURCE)
+	$(CXX) $(CXXFLAGS) -c $(SOURCE)
 
 all : $(NAME)
 clean:
-	@rm -f $(OBJECT)
+	rm -rf $(OBJECT)
 fclean:
-	@rm -f $(OBJECT) $(NAME)
-re:	clean all
+	rm -rf $(OBJECT) $(NAME)
+re:	fclean all
 
 .PHONY: all clean fclean re
