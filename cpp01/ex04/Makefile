@@ -2,20 +2,15 @@ NAME = replace
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror
 MAIN = main.cpp
-# SOURCE = Weapon.cpp HumanA.cpp HumanB.cpp
-# OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME): $(MAIN) $(OBJECT)
-	# $(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJECT)
+$(NAME): $(MAIN)
 	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME)
-# $(OBJECT): $(SOURCE)
-# 	$(CXX) $(CXXFLAGS) -c $(SOURCE)
 
 all : $(NAME)
 clean:
-	rm -rf $(OBJECT)
+	rm -rf *.replace
 fclean:
-	rm -rf $(OBJECT) $(NAME) *.replace
+	rm -rf $(NAME) *.replace
 re:	fclean all
 
 .PHONY: all clean fclean re
