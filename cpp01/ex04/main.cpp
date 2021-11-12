@@ -74,15 +74,13 @@ void	write_replace_file(std::ifstream &read_file, std::ofstream &write_file, cha
 			}
 			write_file << new_line;
 		}
-
 	}
 }
 
-int	close_file(std::ifstream &read_file, std::ofstream &write_file)
+void	close_file(std::ifstream &read_file, std::ofstream &write_file)
 {
 	read_file.close();
 	write_file.close();
-	return 0;
 }
 
 int	main(int argc, char **argv)
@@ -103,5 +101,6 @@ int	main(int argc, char **argv)
 		return 1;
 
 	write_replace_file(read_file, write_file, argv);
-	return close_file(read_file, write_file);
+	close_file(read_file, write_file);
+	return 0;
 }
