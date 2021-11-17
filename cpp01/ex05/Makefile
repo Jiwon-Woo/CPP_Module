@@ -3,9 +3,10 @@ CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 MAIN = main.cpp
 SOURCE = Karen.cpp
+HEADER = Karen.cpp
 OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME): $(MAIN) $(OBJECT)
+$(NAME): $(MAIN) $(OBJECT) $(HEADER)
 	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJECT)
 $(OBJECT): $(SOURCE)
 	$(CXX) $(CXXFLAGS) -c $(SOURCE)
