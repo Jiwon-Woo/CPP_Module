@@ -2,10 +2,13 @@
 
 int	main()
 {
-	Zombie* jwoo = newZombie("jwoo");
-	Zombie	jiwon = Zombie("jiwon");
+	Zombie zombieStack = Zombie("stack");
+	Zombie *zombieHeap = new Zombie("heap");
+	Zombie *zombieNew = newZombie("newZombie");
 
-	jwoo->announce();
-	jiwon.announce();
-	randomChump("woo");
+	zombieStack.announce();
+	zombieHeap->announce();
+	zombieNew->announce();
+	randomChump("randomChump");
+	delete zombieHeap;
 }

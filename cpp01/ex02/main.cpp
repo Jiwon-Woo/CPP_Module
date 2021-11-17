@@ -6,13 +6,19 @@ int	main()
 	std::string	*stringPTR = &str;
 	std::string	&stringREF = str;
 
-	std::cout << "   string address: " << &str << std::endl;
-	std::cout << "stringPTR address: " << stringPTR << std::endl;
-	std::cout << "stringREF address: " << &stringREF << std::endl;
+	std::cout << "===================================" << std::endl;
+	std::cout << " display the address of the string " << std::endl;
+	std::cout << "===================================" << std::endl;
+	std::cout << "by using str      : " << &str << std::endl;
+	std::cout << "by using stringPTR: " << stringPTR << std::endl;
+	std::cout << "by using stringREF: " << &stringREF << std::endl << std::endl;
 
-	std::cout << "     string value: " << str << std::endl;
-	std::cout << "  stringPTR value: " << *stringPTR << std::endl;
-	std::cout << "  stringREF value: " << stringREF << std::endl;
+	std::cout << "====================================" << std::endl;
+	std::cout << "         display the string         " << std::endl;
+	std::cout << "====================================" << std::endl;
+	std::cout << "by using str      : " << str << std::endl;
+	std::cout << "by using stringPTR: " << *stringPTR << std::endl;
+	std::cout << "by using stringREF: " << stringREF << std::endl;
 
 	return 0;
 }
