@@ -1,6 +1,6 @@
 NAME = zombie
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 MAIN = main.cpp
 SOURCE = Zombie.cpp newZombie.cpp randomChump.cpp
 OBJECT = $(SOURCE:.cpp=.o)

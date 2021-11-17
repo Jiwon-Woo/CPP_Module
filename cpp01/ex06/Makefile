@@ -1,6 +1,6 @@
 NAME = karenFilter
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 MAIN = main.cpp
 SOURCE = Karen.cpp
 OBJECT = $(SOURCE:.cpp=.o)

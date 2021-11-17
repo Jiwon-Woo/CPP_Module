@@ -1,6 +1,6 @@
 NAME = replace
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 MAIN = main.cpp
 
 $(NAME): $(MAIN)

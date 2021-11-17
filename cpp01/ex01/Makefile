@@ -1,6 +1,6 @@
 NAME = zombies
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 MAIN = main.cpp
 SOURCE = Zombie.cpp ZombieHorde.cpp
 OBJECT = $(SOURCE:.cpp=.o)

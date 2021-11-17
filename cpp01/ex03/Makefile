@@ -1,6 +1,6 @@
 NAME = violence
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 MAIN = main.cpp
 SOURCE = Weapon.cpp HumanA.cpp HumanB.cpp
 OBJECT = $(SOURCE:.cpp=.o)
