@@ -8,9 +8,7 @@ $(NAME): $(MAIN)
 
 all : $(NAME)
 clean:
-	rm -rf *.replace
-fclean:
-	rm -rf $(NAME) *.replace
-re:	fclean all
+	rm -rf $(NAME)
+re:	clean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean re
