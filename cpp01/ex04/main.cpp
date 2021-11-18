@@ -14,7 +14,7 @@ int	check_arg(int argc, char **argv)
 
 int	check_ifstream(std::ifstream &read_file, std::string file_name)
 {
-	if (!read_file.is_open())
+	if (read_file.fail())
 	{
 		std::cerr << "Unable to find the file: " << file_name << std::endl;
 		return 1;
@@ -24,7 +24,7 @@ int	check_ifstream(std::ifstream &read_file, std::string file_name)
 
 int	check_ofstream(std::ofstream &write_file, std::ifstream &read_file, std::string file_name)
 {
-	if (!write_file.is_open())
+	if (write_file.fail())
 	{
 		std::cerr << "Fail to open the file: " << file_name + ".replace" << std::endl;
 		read_file.close();
