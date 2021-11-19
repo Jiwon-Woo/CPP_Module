@@ -1,24 +1,15 @@
 #include "Karen.hpp"
 
-#define C_NRML "\033[0m"
-#define C_BLCK "\033[30m"
-#define C_RED  "\033[31m"
-#define C_GREN "\033[32m"
-#define C_YLLW "\033[33m"
-#define C_BLUE "\033[34m"
-#define C_PRPL "\033[35m"
-#define C_AQUA "\033[36m"
-
 Karen::Karen()
 {
-	complain_list[0].level = "DEBUG";
-	complain_list[0].func_ptr = &Karen::debug;
-	complain_list[1].level = "INFO";
-	complain_list[1].func_ptr = &Karen::info;
-	complain_list[2].level = "WARNING";
-	complain_list[2].func_ptr = &Karen::warning;
-	complain_list[3].level = "ERROR";
-	complain_list[3].func_ptr = &Karen::error;
+	complain_list[DEBUG].level = "DEBUG";
+	complain_list[DEBUG].func_ptr = &Karen::debug;
+	complain_list[INFO].level = "INFO";
+	complain_list[INFO].func_ptr = &Karen::info;
+	complain_list[WARNING].level = "WARNING";
+	complain_list[WARNING].func_ptr = &Karen::warning;
+	complain_list[ERROR].level = "ERROR";
+	complain_list[ERROR].func_ptr = &Karen::error;
 }
 
 void	Karen::debug( void )
@@ -53,7 +44,7 @@ void	Karen::error( void )
 
 void	Karen::complain( std::string level )
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < TOTAL_NUM_OF_LEVEL; i++)
 	{
 		if (complain_list[i].level == level)
 			return (this->*complain_list[i].func_ptr)();

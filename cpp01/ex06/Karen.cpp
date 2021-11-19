@@ -54,19 +54,29 @@ int	level_name_to_index( t_complain *complain_list, std::string level )
 	return level_num;
 }
 
+int	is_filtering(int level, int filter)
+{
+	if (level == UNDEFINED)
+		return UNDEFINED;
+	return level - filter >= 0 ? IMPORTANT : IGNORE;
+}
+
 void	Karen::complain( std::string level, std::string filter )
 {
-	int	level_num = level_name_to_index( this->complain_list, level );
-	int	filter_num = level_name_to_index( this->complain_list, filter );
-	int	filtering = level_num - filter_num >= 0 ? IMPORTANT : IGNORE;
-
-	if (level_num == UNDEFINED || filter_num == UNDEFINED)
-		filtering = UNDEFINED;
+	int	level_num = level_name_to_index( complain_list, level );
+	int	filter_num = level_name_to_index( complain_list, filter );
+	int	filtering = is_filtering(level_num, filter_num);
 
 	switch (filtering)
 	{
 		case IMPORTANT:
 			(this->*complain_list[level_num].func_ptr)();
+			break;
+		case IGNORE:
+			std::cout << C_BLCK << "[ Karen's complaint was ignored. ]" << C_NRML << std::endl << std::endl;
+			break;
+		case UNDEFINED:
+			std::cout << C_BLUE << "[ This complaint is not defined. ]" << C_NRML << std::endl << std::endl;
 			break;
 		default:
 			break;
