@@ -3,11 +3,12 @@ CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror
 MAIN = tests.cpp
 SOURCE = Account.cpp
+HEADER = Account.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJECT)
 	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJECT)
-$(OBJECT): $(SOURCE)
+$(OBJECT): $(SOURCE) $(HEADER)
 	$(CXX) $(CXXFLAGS) -c $(SOURCE)
 
 all : $(NAME)

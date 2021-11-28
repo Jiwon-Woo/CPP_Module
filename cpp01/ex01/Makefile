@@ -6,9 +6,9 @@ SOURCE = Zombie.cpp ZombieHorde.cpp
 HEADER = Zombie.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME): $(MAIN) $(OBJECT) $(HEADER)
+$(NAME): $(MAIN) $(OBJECT)
 	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJECT)
-$(OBJECT): $(SOURCE)
+$(OBJECT): $(SOURCE) $(HEADER)
 	$(CXX) $(CXXFLAGS) -c $(SOURCE)
 
 all : $(NAME)
