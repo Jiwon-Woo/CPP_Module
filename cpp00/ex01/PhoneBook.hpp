@@ -17,16 +17,19 @@ class	PhoneBook {
 
 private:
 	Contact	contact[8];
-	int		contact_num;
-
-public:
-	PhoneBook();
-	void	add_contact(Contact contact);
-	void	search_contact(int index);
-	int		get_contact_num();
+	int	contact_num;
+	int	get_user_search_index();
+	Contact	get_user_contact();
 	void	show_contact_info(int index);
 	void	show_contact_header();
 	void	show_contact_fields(std::string field);
+	void	show_contact(int index);
+
+public:
+	PhoneBook();
+	int	get_contact_num();
+	void	add_contact();
+	void	search_contact();
 	~PhoneBook();
 
 };
