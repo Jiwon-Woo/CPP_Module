@@ -1,6 +1,6 @@
-NAME = fixed_point
+NAME = fixed
 CXX = clang++
-CXXFLAGS = -std=c++98
+CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
 SOURCE = Fixed.cpp
