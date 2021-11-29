@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = fixed_point
 CXX = clang++
 CXXFLAGS = -std=c++98
 RM = rm -rf
