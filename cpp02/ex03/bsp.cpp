@@ -2,25 +2,20 @@
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	Point ab(b - a);
-	Point ac(c - a);
-	Point ap(point - a);
+	Point	ab(b - a);
+	Point	ac(c - a);
+	Point	ap(point - a);
 
-	std::cout << a.getX() << std::endl;
-	std::cout << a.getY() << std::endl;
-	std::cout << b.getX() << std::endl;
-	std::cout << b.getY() << std::endl;
-	std::cout << c.getX() << std::endl;
-	std::cout << c.getY() << std::endl;
-	std::cout << point.getX() << std::endl;
-	std::cout << point.getY() << std::endl << std::endl;
+	Fixed	t1((ap.getX() * ac.getY() -  ac.getX() * ap.getY()) / 
+				(ab.getX() * ac.getY() - ac.getX() * ab.getY()));
+	
+	Fixed	t2((ap.getX() * ab.getY() -  ab.getX() * ap.getY()) / 
+				(ac.getX() * ab.getY() - ab.getX() * ac.getY()));
 
-	std::cout << ab.getX() << std::endl;
-	std::cout << ab.getY() << std::endl;
-	std::cout << ac.getX() << std::endl;
-	std::cout << ac.getY() << std::endl;
-	std::cout << ap.getX() << std::endl;
-	std::cout << ap.getY() << std::endl;
-
-	return true;
+	if ((Fixed(0.0f) <= t1 + t2 && t1 + t2 <= Fixed(1.0f))
+			&& (Fixed(0.0f) <= t2 && t2 <= Fixed(1.0f))
+			&& (Fixed(0.0f) <= t1 && t1 <= Fixed(1.0f)))
+		return true;
+	
+	return false;
 }
