@@ -19,7 +19,7 @@ public:
 	void	attack(std::string const & target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	std::string	getClapTrapName() const;
+	std::string	getName() const;
 	unsigned int	getHitPoints() const;
 	unsigned int	getEnergyPoints() const;
 	unsigned int	getAttackDamage() const;

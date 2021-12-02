@@ -22,7 +22,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap &clapTrap)
 {
-	this->name = clapTrap.getClapTrapName();
+	this->name = clapTrap.getName();
 	this->hitPoints = clapTrap.getHitPoints();
 	this->energyPoints = clapTrap.getEnergyPoints();
 	this->attackDamage = clapTrap.getAttackDamage();
@@ -70,7 +70,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "The remaining HP is " << this->hitPoints << "." << std::endl;
 }
 
-std::string	ClapTrap::getClapTrapName() const
+std::string	ClapTrap::getName() const
 {
 	return this->name;
 }
