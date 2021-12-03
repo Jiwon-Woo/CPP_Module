@@ -27,10 +27,10 @@ public:
 	Fixed	operator-( const Fixed &fixed ) const;
 	Fixed	operator*( const Fixed &fixed ) const;
 	Fixed	operator/( const Fixed &fixed ) const;
-	Fixed&	operator++( void );	// 전위 연산자
-	Fixed&	operator--( void );
-	Fixed	operator++( int );	// 후위 연산자
-	Fixed	operator--( int );
+	Fixed&	operator++( void );	// 전위 연산자 ++a
+	Fixed&	operator--( void );	// 전위 연산자 --a
+	Fixed	operator++( int );	// 후위 연산자 a++
+	Fixed	operator--( int );	// 후위 연산자 a--
 
 	int	getRawBits( void ) const;
 	int	toInt( void ) const;
