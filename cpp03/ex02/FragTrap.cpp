@@ -3,16 +3,16 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
 	std::cout << "Default FragTrap created" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
 	std::cout << "FragTrap <" << this->name << "> created" << std::endl;
 }
 
