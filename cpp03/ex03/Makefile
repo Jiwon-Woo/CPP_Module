@@ -1,6 +1,6 @@
 NAME = diamondTrap
 CXX = clang++
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wshadow -Wno-shadow -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
 SOURCE = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
