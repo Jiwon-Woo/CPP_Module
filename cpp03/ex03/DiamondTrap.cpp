@@ -3,9 +3,9 @@
 DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), name("")
 {
 	ClapTrap::name += "_clap_name";
-	this->hitPoints = FRAG_HIT_POINTS;
-	this->energyPoints = SCAV_ENERGY_POINTS;
-	this->attackDamage = FRAG_ATTACK_DAMAGE;
+	this->hitPoints = DIAMOND_HIT_POINTS;
+	this->energyPoints = DIAMOND_ENERGY_POINTS;
+	this->attackDamage = DIAMOND_ATTACK_DAMAGE;
 	std::cout << "Default DiamondTrap created" << std::endl;
 }
 
@@ -13,7 +13,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), Sca
 {
 	ClapTrap::name += "_clap_name";
 	this->hitPoints = FRAG_HIT_POINTS;
-	this->energyPoints = SCAV_ENERGY_POINTS;
+	this->energyPoints = DIAMOND_ENERGY_POINTS;
 	this->attackDamage = FRAG_ATTACK_DAMAGE;
 	std::cout << "DiamondTrap <" << this->name << "> created" << std::endl;
 }
