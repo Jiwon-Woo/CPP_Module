@@ -87,7 +87,7 @@ Fixed&	Fixed::operator++( void )	// 전위 연산자 ++a
 
 Fixed&	Fixed::operator--( void )	// 전위 연산자 --a
 {
-	this->fixedPoint++;
+	this->fixedPoint--;
 	return *this;
 }
 
