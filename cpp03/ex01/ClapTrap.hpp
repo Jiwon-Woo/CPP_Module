@@ -3,13 +3,17 @@
 
 # include <iostream>
 
+# define HIT_POINTS 10
+# define ENERGY_POINTS 10
+# define ATTACK_DAMAGE 0
+
 class ClapTrap
 {
 protected:
 	std::string	name;
-	unsigned int	hitPoints;		// hp
+	unsigned int	hitPoints;
 	unsigned int	energyPoints;
-	unsigned int	attackDamage;	// 공격력
+	unsigned int	attackDamage;
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
