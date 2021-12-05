@@ -7,7 +7,7 @@
 # define FRAG_ENERGY_POINTS 100
 # define FRAG_ATTACK_DAMAGE 30
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public ClapTrap
 {
 public:
 	FragTrap();

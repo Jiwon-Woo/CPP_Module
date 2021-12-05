@@ -7,7 +7,7 @@
 # define SCAV_ENERGY_POINTS 50
 # define SCAV_ATTACK_DAMAGE 20
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
 public:
 	ScavTrap();

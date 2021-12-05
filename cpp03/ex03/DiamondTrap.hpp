@@ -8,9 +8,9 @@
 # define DIAMOND_ENERGY_POINTS	SCAV_ENERGY_POINTS
 # define DIAMOND_ATTACK_DAMAGE	FRAG_ATTACK_DAMAGE
 
-class DiamondTrap : virtual public FragTrap, virtual public ScavTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
-protected:
+private:
 	std::string	name;
 public:
 	DiamondTrap();
