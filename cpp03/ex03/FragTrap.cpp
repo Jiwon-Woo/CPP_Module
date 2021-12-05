@@ -37,9 +37,9 @@ FragTrap&	FragTrap::operator=(const FragTrap &fragTrap)
 
 void	FragTrap::attack(std::string const & target)
 {
-	if (this->hitPoints == 0)
+	if (this->hitPoints <= 0)
 	{
-		std::cout << "FragTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "FragTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
 	std::cout << "FragTrap <" << this->name << "> attacks <" << target
@@ -50,14 +50,14 @@ void	FragTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints <= 0)
 	{
-		std::cout << "FragTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "FragTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
-	std::cout << "FragTrap <" << this->name << "> is attacked. The remaining HP is ";
+	std::cout << "FragTrap <" << this->name << "> takes " << amount << " points of damage. The remaining HP is ";
 	if (this->hitPoints <= amount)
 	{
 		this->hitPoints = 0;
-		std::cout << "0. FragTrap <" << this->name << "> is died" << std:: endl;
+		std::cout << "0. FragTrap <" << this->name << "> is died." << std:: endl;
 	}
 	else
 	{
@@ -73,7 +73,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "FragTrap <" << this->name << "> is repaired. ";
 	this->hitPoints += amount;
-	std::cout << "The remaining HP is " << this->hitPoints << "." << std::endl;
+	std::cout << "It recovers " << amount << " points, the remaining HP is " << this->hitPoints << "." << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)

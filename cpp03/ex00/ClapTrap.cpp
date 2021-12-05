@@ -31,9 +31,9 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap &clapTrap)
 
 void	ClapTrap::attack(std::string const & target)
 {
-	if (this->hitPoints == 0)
+	if (this->hitPoints <= 0)
 	{
-		std::cout << "ClapTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "ClapTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
 	std::cout << "ClapTrap <" << this->name << "> attacks <" << target
@@ -44,14 +44,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints <= 0)
 	{
-		std::cout << "ClapTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "ClapTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
-	std::cout << "ClapTrap <" << this->name << "> is attacked. The remaining HP is ";
+	std::cout << "ClapTrap <" << this->name << "> takes " << amount << " points of damage. The remaining HP is ";
 	if (this->hitPoints <= amount)
 	{
 		this->hitPoints = 0;
-		std::cout << "0. ClapTrap <" << this->name << "> is died" << std:: endl;
+		std::cout << "0. ClapTrap <" << this->name << "> is died." << std:: endl;
 	}
 	else
 	{
@@ -67,7 +67,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "ClapTrap <" << this->name << "> is repaired. ";
 	this->hitPoints += amount;
-	std::cout << "The remaining HP is " << this->hitPoints << "." << std::endl;
+	std::cout << "It recovers " << amount << " points, the remaining HP is " << this->hitPoints << "." << std::endl;
 }
 
 std::string	ClapTrap::getName() const

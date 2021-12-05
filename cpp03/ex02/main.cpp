@@ -19,6 +19,15 @@ int	main(void)
 	b.attack("a");
 	a.takeDamage(b.getAttackDamage());
 	std::cout << std::endl;
+	a.attack("b");
+	b.takeDamage(a.getAttackDamage());
+	std::cout << std::endl;
+	a.attack("b");
+	b.takeDamage(a.getAttackDamage());
+	std::cout << std::endl;
+	a.attack("b");
+	b.takeDamage(a.getAttackDamage());
+	std::cout << std::endl;
 	b.guardGate();
 	std::cout << std::endl;
 	a.highFivesGuys();

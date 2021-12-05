@@ -47,14 +47,14 @@ void	DiamondTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints <= 0)
 	{
-		std::cout << "DiamondTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "DiamondTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
-	std::cout << "DiamondTrap <" << this->name << "> is attacked. The remaining HP is ";
+	std::cout << "DiamondTrap <" << this->name << "> takes " << amount << " points of damage. The remaining HP is ";
 	if (this->hitPoints <= amount)
 	{
 		this->hitPoints = 0;
-		std::cout << "0. DiamondTrap <" << this->name << "> is died" << std:: endl;
+		std::cout << "0. DiamondTrap <" << this->name << "> is died." << std:: endl;
 	}
 	else
 	{
@@ -70,7 +70,7 @@ void	DiamondTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "DiamondTrap <" << this->name << "> is repaired. ";
 	this->hitPoints += amount;
-	std::cout << "The remaining HP is " << this->hitPoints << "." << std::endl;
+	std::cout << "It recovers " << amount << " points, the remaining HP is " << this->hitPoints << "." << std::endl;
 }
 
 void	DiamondTrap::whoAmI()

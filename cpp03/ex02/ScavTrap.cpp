@@ -37,9 +37,9 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap &scavTrap)
 
 void	ScavTrap::attack(std::string const & target)
 {
-	if (this->hitPoints == 0)
+	if (this->hitPoints <= 0)
 	{
-		std::cout << "ScavTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "ScavTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
 	std::cout << "ScavTrap <" << this->name << "> attacks <" << target
@@ -50,14 +50,14 @@ void	ScavTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints <= 0)
 	{
-		std::cout << "ScavTrap <" << this->name << "> is died" << std::endl;
+		std::cout << "ScavTrap <" << this->name << "> is died." << std::endl;
 		return;
 	}
-	std::cout << "ScavTrap <" << this->name << "> is attacked. The remaining HP is ";
+	std::cout << "ScavTrap <" << this->name << "> takes " << amount << " points of damage. The remaining HP is ";
 	if (this->hitPoints <= amount)
 	{
 		this->hitPoints = 0;
-		std::cout << "0. ScavTrap <" << this->name << "> is died" << std:: endl;
+		std::cout << "0. ScavTrap <" << this->name << "> is died." << std:: endl;
 	}
 	else
 	{
@@ -73,7 +73,7 @@ void	ScavTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "ScavTrap <" << this->name << "> is repaired. ";
 	this->hitPoints += amount;
-	std::cout << "The remaining HP is " << this->hitPoints << "." << std::endl;
+	std::cout << "It recovers " << amount << " points, the remaining HP is " << this->hitPoints << "." << std::endl;
 }
 
 void	ScavTrap::guardGate()
