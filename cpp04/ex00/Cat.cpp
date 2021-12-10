@@ -2,14 +2,14 @@
 
 Cat::Cat() : Animal()
 {
-	this->type = "Cat";
 	std::cout << "Default Cat created" << std::endl;
+	this->type = "Cat";
 }
 
 Cat::Cat(const Cat &cat) : Animal(cat)
 {
-	this->type = "Cat";
 	std::cout << "Copy Cat created" << std::endl;
+	*(this) = cat;
 }
 
 Cat::~Cat()
@@ -19,6 +19,7 @@ Cat::~Cat()
 
 Cat&	Cat::operator=(const Cat &cat)
 {
+	std::cout << "Assignation operator of Cat" << std::endl;
 	this->type = cat.getType();
 	return (*this);
 }

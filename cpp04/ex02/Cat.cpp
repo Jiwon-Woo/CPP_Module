@@ -20,7 +20,7 @@ Cat::~Cat()
 
 Cat&	Cat::operator=(const Cat &cat)
 {
-	std::cout << "Assignation operator of Dog" << std::endl;
+	std::cout << "Assignation operator of Cat" << std::endl;
 	this->type = cat.getType();
 	*(this->brain) = cat.getBrain();
 	return (*this);

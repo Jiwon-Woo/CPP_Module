@@ -2,14 +2,14 @@
 
 Dog::Dog() : Animal()
 {
-	this->type = "Dog";
 	std::cout << "Default Dog created" << std::endl;
+	this->type = "Dog";
 }
 
 Dog::Dog(const Dog &dog) : Animal(dog)
 {
-	this->type = "Dog";
 	std::cout << "Copy Dog created" << std::endl;
+	*(this) = dog;
 }
 
 Dog::~Dog()
@@ -19,6 +19,7 @@ Dog::~Dog()
 
 Dog&	Dog::operator=(const Dog &dog)
 {
+	std::cout << "Assignation operator of Dog" << std::endl;
 	this->type = dog.getType();
 	return (*this);
 }
