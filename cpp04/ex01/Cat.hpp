@@ -14,6 +14,9 @@ public:
 	~Cat();
 	Cat&	operator=(const Cat &cat);
 	void	makeSound() const;
+	Brain&	getBrain() const;
+	void	addIdea(std::string idea);
+	void	showIdea() const;
 };
 
 #endif
