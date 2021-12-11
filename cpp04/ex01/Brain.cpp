@@ -1,5 +1,9 @@
 #include "Brain.hpp"
 
+# define C_NRML "\033[0m"
+# define C_GREN "\033[32m"
+# define C_AQUA "\033[36m"
+
 Brain::Brain() : idea_num(0)
 {
 	std::cout << "Default Brain created" << std::endl;
@@ -19,25 +23,25 @@ Brain::~Brain()
 Brain&	Brain::operator=(const Brain &brain)
 {
 	std::cout << "Assignation operator of Brain" << std::endl;
-	for (unsigned long i = 0; i < idea_num; i++)
-		idea[i] = "";
+	for (unsigned long i = 0; i < brain.idea_num; i++)
+		this->ideas[i] = brain.ideas[i];
+	for (unsigned long i = brain.idea_num; i < idea_num; i++)
+		this->ideas[i] = "";
 	idea_num = brain.idea_num;
-	for (unsigned long i = 0; i < idea_num; i++)
-		this->idea[i] = brain.idea[i];
 	return (*this);
 }
 
 void	Brain::addIdea(std::string idea)
 {
-	this->idea[idea_num] = idea;
-	idea_num++;
+	std::cout << C_GREN << ">> add " << C_NRML << idea << C_GREN <<
+		" to ideas[" << C_NRML << idea_num << C_GREN "]" << C_NRML << std::endl;
+	this->ideas[idea_num] = idea;
+	idea_num = (idea_num + 1) % 100;
 }
 
 void	Brain::showIdea() const
 {
-	std::cout << "############" << std::endl;
-	std::cout << "# showIdea #" << std::endl;
-	std::cout << "############" << std::endl;
+	std::cout << C_AQUA << ">> show ideas of Brain <<" << C_NRML << std::endl;
 	for (unsigned long i = 0; i < idea_num; i++)
-		std::cout << i << " : " << idea[i] << std::endl;
+		std::cout << "ideas[" << i << "] : " << this->ideas[i] << std::endl;
 }
