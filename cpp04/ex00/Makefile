@@ -3,8 +3,8 @@ CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
-SOURCE = Animal.cpp Dog.cpp Cat.cpp
-HEADER = Animal.hpp Dog.hpp Cat.hpp
+SOURCE = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongDog.cpp WrongCat.cpp
+HEADER = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongDog.hpp WrongCat.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJECT)
