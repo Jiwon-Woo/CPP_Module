@@ -3,9 +3,6 @@
 
 # include "Bureaucrat.hpp"
 
-# define HIGHEST_GRADE 1
-# define LOWEST_GRADE 150
-
 class Form
 {
 private:

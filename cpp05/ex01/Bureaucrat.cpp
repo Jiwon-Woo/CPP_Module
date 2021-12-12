@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include <exception>
 
 class Bureaucrat::GradeTooHighException : public std::exception
 {
