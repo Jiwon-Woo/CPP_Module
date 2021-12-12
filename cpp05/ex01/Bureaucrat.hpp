@@ -6,6 +6,10 @@
 # define HIGHEST_GRADE 1
 # define LOWEST_GRADE 150
 
+class Bureaucrat;
+
+#include "Form.hpp"
+
 class Bureaucrat
 {
 private:
@@ -22,6 +26,7 @@ public:
 	int	getGrade() const;
 	void	incrementGrade();
 	void	decrementGrade();
+	void	signForm(Form &form);
 	class	GradeTooHighException;
 	class	GradeTooLowException;
 };
