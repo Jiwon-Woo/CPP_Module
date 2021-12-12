@@ -3,8 +3,8 @@ CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
-SOURCE = Bureaucrat.cpp
-HEADER = Bureaucrat.hpp
+SOURCE = Bureaucrat.cpp Form.cpp
+HEADER = Bureaucrat.hpp	Form.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJECT)
