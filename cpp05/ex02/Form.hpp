@@ -17,8 +17,9 @@ public:
 	Form(std::string name, int signGrade, int excuteGrade);
 	Form(const Form& form);
 	Form&	operator=(const Form &);
-	~Form();
+	virtual	~Form();
 	void	beSigned(const Bureaucrat& bureaucrat);
+	virtual void	execute(Bureaucrat const & executor) const = 0;
 	std::string	getName() const;
 	bool	getIsSigned() const;
 	int	getSignGrade() const;
