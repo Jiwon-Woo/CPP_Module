@@ -9,6 +9,7 @@ private:
 	std::string	target;
 public:
 	RobotomyRequestForm();
+	RobotomyRequestForm(std::string target);
 	RobotomyRequestForm(const RobotomyRequestForm &pp);
 	RobotomyRequestForm&	operator=(const RobotomyRequestForm &);
 	~RobotomyRequestForm();
