@@ -22,6 +22,10 @@ Form::Form() : name("defalut Form"), isSigned(false), signGrade(LOWEST_GRADE), e
 
 Form::Form(std::string name, int signGrade, int excuteGrade) : name(name), isSigned(false), signGrade(signGrade), excuteGrade(excuteGrade)
 {
+	if (this->signGrade < HIGHEST_GRADE || this->excuteGrade < HIGHEST_GRADE)
+		throw Form::GradeTooHighException();
+	else if (this->signGrade > LOWEST_GRADE || this->excuteGrade > LOWEST_GRADE)
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form& form) : name(form.getName()), isSigned(false), signGrade(form.getSignGrade()), excuteGrade(form.getExcuteGrade())
@@ -39,10 +43,10 @@ Form&	Form::operator=(const Form &)
 
 void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() < this->signGrade)
-		this->isSigned = true;
-	else
+	if (bureaucrat.getGrade() > this->signGrade)
 		throw Form::GradeTooLowException();
+	else
+		this->isSigned = true;
 }
 
 std::string	Form::getName() const
@@ -69,7 +73,7 @@ std::ostream&	operator<<(std::ostream &os, const Form &form)
 {
 	os << ">> describes the state of the form << \n";
 	os << " > name        : " << form.getName() << '\n';
-	os << " > isSigned    : " << form.getIsSigned() << '\n';
+	os << " > isSigned    : " << (form.getIsSigned() ? "O" : "X") << '\n';
 	os << " > signGrade   : " << form.getSignGrade() << '\n';
 	os << " > excuteGrade : " << form.getExcuteGrade() << '\n';
 	return os;

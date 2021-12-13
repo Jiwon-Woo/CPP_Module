@@ -1,5 +1,9 @@
 #include "Bureaucrat.hpp"
 
+# define C_NRML "\033[0m"
+# define C_GREN "\033[32m"
+# define C_RED  "\033[31m"
+
 class Bureaucrat::GradeTooHighException : public std::exception
 {
 public:
@@ -74,18 +78,21 @@ void	Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << "Bureaucrat <" << this->name << "> signs Form <" << form.getName() << ">";
+		std::cout << C_GREN << 
+			"Bureaucrat <" << this->name << "> signs Form <" << form.getName() << ">"
+			<< C_NRML << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Bureaucrat <" << this->name << "> cannot signs Form <" << form.getName() << "> because ";
-		std::cerr << "<" << this->name << "> " << e.what() << "." << std::endl;
+		std::cout << C_RED << "Bureaucrat <" << this->name << "> cannot signs Form <" << form.getName() << "> because ";
+		std::cerr << "<" << this->name << "> " << e.what() << "." << C_NRML << std::endl;
 	}
 }
 
 std::ostream&	operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 {
-	os << "The grade of Bureaucrat <" << bureaucrat.getName() <<
-		"> is <" << bureaucrat.getGrade() << ">";
+	os << ">> describes the bureaucrat << \n";
+	os << " > name  : " << bureaucrat.getName() << '\n';
+	os << " > grade : " << bureaucrat.getGrade() << '\n';
 	return os;
 }

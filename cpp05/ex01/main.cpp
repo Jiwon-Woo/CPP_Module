@@ -1,18 +1,19 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int		main()
 {
-	Bureaucrat	defaultBureaucrat = Bureaucrat();
-	Bureaucrat	a("a");
-	Bureaucrat	b("b", 1);
+	Bureaucrat	bureaucratX("X", 50);
+	Form	defaultForm = Form();
+	Form	formA("A", HIGHEST_GRADE, HIGHEST_GRADE);
+	Form	formB("B", 50, 50);
 
-	std::cout << std::endl;
-	std::cout << "#############################" << std::endl;
+	std::cout << std::endl << "#############################" << std::endl;
 	std::cout << "# overload operator << test #" << std::endl;
-	std::cout << "#############################" << std::endl;
-	std::cout << defaultBureaucrat << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
+	std::cout << "#############################" << std::endl << std::endl;
+	std::cout << bureaucratX << std::endl;
+	std::cout << defaultForm << std::endl;
+	std::cout << formA << std::endl;
+	std::cout << formB << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "####################################" << std::endl;
@@ -20,7 +21,7 @@ int		main()
 	std::cout << "####################################" << std::endl;
 	try 
 	{
-		Bureaucrat tooHigh("lanarang", 0);
+		Form tooHigh("tooHigh", 0, 50);
 		std::cout << tooHigh << std::endl;
 	} 
 	catch (std::exception &e)
@@ -34,37 +35,65 @@ int		main()
 	std::cout << "###################################" << std::endl;
 	try 
 	{
-		Bureaucrat toolow(Bureaucrat("whanarang", 151));
-		std::cout << toolow << std::endl;
+		Form tooLow(Form("tooLow", 50, 151));
+		std::cout << tooLow << std::endl;
 	} 
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl << std::endl;
 
-	std::cout << "###################################" << std::endl;
-	std::cout << "# The grade is increased too much #" << std::endl;
-	std::cout << "###################################" << std::endl;
+	std::cout << "################" << std::endl;
+	std::cout << "# Success sign #" << std::endl;
+	std::cout << "################" << std::endl << std::endl;
 	try 
 	{
-		b.incrementGrade();
-		std::cout << b << std::endl;
+		std::cout << bureaucratX << std::endl << std::endl;
+		std::cout << formB << std::endl;
+		bureaucratX.signForm(formB);
+		std::cout << std::endl << formB << std::endl;
 	} 
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << std::endl;
-
-	std::cout << "###################################" << std::endl;
-	std::cout << "# The grade is decreased too much #" << std::endl;
-	std::cout << "###################################" << std::endl;
+	std::cout << "============================================" << std::endl << std::endl;
 	try 
 	{
-		a.decrementGrade();
-		std::cout << a << std::endl;
+		std::cout << defaultForm << std::endl;
+		bureaucratX.signForm(defaultForm);
+		std::cout << std::endl << defaultForm << std::endl;
+	} 
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
 	}
+	std::cout << std::endl << std::endl;
+
+	std::cout << "#############" << std::endl;
+	std::cout << "# Fail sign #" << std::endl;
+	std::cout << "#############" << std::endl;
+	try 
+	{
+		bureaucratX.decrementGrade();
+		Form copyFormB(formB);
+		std::cout << std::endl << bureaucratX << std::endl << std::endl;
+		std::cout << copyFormB << std::endl;
+		bureaucratX.signForm(copyFormB);
+		std::cout << std::endl << copyFormB << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "===================================================================" << std::endl << std::endl;
+	try 
+	{
+		std::cout << formA << std::endl;
+		bureaucratX.signForm(formA);
+		std::cout << std::endl << formA << std::endl;
+	} 
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
