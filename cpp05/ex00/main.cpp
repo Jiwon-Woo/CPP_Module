@@ -20,7 +20,7 @@ int		main()
 	std::cout << "####################################" << std::endl;
 	try 
 	{
-		Bureaucrat tooHigh("lanarang", 0);
+		Bureaucrat tooHigh("tooHigh", 0);
 		std::cout << tooHigh << std::endl;
 	} 
 	catch (std::exception &e)
@@ -34,8 +34,8 @@ int		main()
 	std::cout << "###################################" << std::endl;
 	try 
 	{
-		Bureaucrat toolow(Bureaucrat("whanarang", 151));
-		std::cout << toolow << std::endl;
+		Bureaucrat tooLow(Bureaucrat("tooLow", 151));
+		std::cout << tooLow << std::endl;
 	} 
 	catch (std::exception &e)
 	{
