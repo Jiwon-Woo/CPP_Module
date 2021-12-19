@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main()
 {
@@ -10,6 +11,8 @@ int	main()
 	ShrubberyCreationForm	formSC("SC");
 	RobotomyRequestForm	defaultRR = RobotomyRequestForm();
 	RobotomyRequestForm	formRR("RR");
+	PresidentialPardonForm	defaultPP = PresidentialPardonForm();
+	PresidentialPardonForm	formPP("PP");
 
 	std::cout << std::endl << "#############################" << std::endl;
 	std::cout << "# overload operator << test #" << std::endl;
@@ -21,6 +24,8 @@ int	main()
 	std::cout << formSC << std::endl;
 	std::cout << defaultRR << std::endl;
 	std::cout << formRR << std::endl;
+	std::cout << defaultPP << std::endl;
+	std::cout << formPP << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "###################" << std::endl;
@@ -28,15 +33,21 @@ int	main()
 	std::cout << "###################" << std::endl << std::endl;
 	try 
 	{
+		bureaucratX.executeForm(defaultSC);
+		std::cout << std::endl;
 		bureaucratY.executeForm(formSC);
 		std::cout << std::endl;
-		bureaucratX.executeForm(formRR);
-		std::cout << std::endl;
 		bureaucratX.executeForm(defaultRR);
 		std::cout << std::endl;
 		bureaucratX.executeForm(formRR);
 		std::cout << std::endl;
 		bureaucratX.executeForm(defaultRR);
+		std::cout << std::endl;
+		bureaucratX.executeForm(formRR);
+		std::cout << std::endl;
+		bureaucratX.executeForm(defaultPP);
+		std::cout << std::endl;
+		bureaucratX.executeForm(formPP);
 	} 
 	catch (std::exception &e)
 	{
@@ -49,9 +60,14 @@ int	main()
 	std::cout << "################" << std::endl;
 	try 
 	{
+		bureaucratZ.executeForm(defaultSC);
 		bureaucratZ.executeForm(formSC);
 		std::cout << std::endl;
+		bureaucratY.executeForm(defaultRR);
 		bureaucratY.executeForm(formRR);
+		std::cout << std::endl;
+		bureaucratY.executeForm(defaultPP);
+		bureaucratY.executeForm(formPP);
 	}
 	catch (std::exception &e)
 	{
