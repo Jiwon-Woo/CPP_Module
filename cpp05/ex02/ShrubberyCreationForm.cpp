@@ -58,8 +58,10 @@ void	write_ascii_tree(std::ofstream& target_file)
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > this->getExcuteGrade())
-		throw Form::GradeTooLowException();
+	if (this->getIsSigned() == false)
+		throw Form::NotSignedException();
+	else if (executor.getGrade() > this->getExcuteGrade())
+		throw Bureaucrat::GradeTooLowException();
 	else
 	{
 		std::ofstream	target_file(this->target + "_shrubbery");

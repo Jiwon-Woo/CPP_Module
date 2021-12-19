@@ -23,8 +23,10 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() > this->getExcuteGrade())
-		throw Form::GradeTooLowException();
+	if (this->getIsSigned() == false)
+		throw Form::NotSignedException();
+	else if (executor.getGrade() > this->getExcuteGrade())
+		throw Bureaucrat::GradeTooLowException();
 	else
 	{
 		std::random_device rd;	// 시드값을 얻기 위한 random_device 생성.

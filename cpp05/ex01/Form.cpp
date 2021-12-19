@@ -2,12 +2,12 @@
 
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return "Forms's grade too high";
+	return "Form's grade too high";
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return "Forms's grade too low";
+	return "Form's grade too low";
 }
 
 Form::Form() : name("defalut Form"), isSigned(false), signGrade(LOWEST_GRADE), excuteGrade(LOWEST_GRADE)
