@@ -1,20 +1,14 @@
 #include "Form.hpp"
 
-class Form::GradeTooHighException : public std::exception
+const char*	Form::GradeTooHighException::what() const throw()
 {
-public:
-	virtual const char* what() const _NOEXCEPT {
-		return "Grade too high";
-	}
-};
+	return "Grade too high";
+}
 
-class Form::GradeTooLowException : public std::exception
+const char*	Form::GradeTooLowException::what() const throw()
 {
-public:
-	virtual const char* what() const _NOEXCEPT {
-		return "Grade too low";
-	}
-};
+	return "Grade too low";
+}
 
 Form::Form() : name("defalut Form"), isSigned(false), signGrade(LOWEST_GRADE), excuteGrade(LOWEST_GRADE)
 {
