@@ -1,10 +1,10 @@
-NAME = form
+NAME = intern
 CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
-SOURCE = Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
-HEADER = Bureaucrat.hpp	Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+SOURCE = Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
+HEADER = Bureaucrat.hpp	Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJECT)

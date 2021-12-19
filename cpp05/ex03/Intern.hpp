@@ -9,10 +9,15 @@ class Intern
 {
 public:
 	Intern();
-	Intern(const Intern& intern);
+	Intern(const Intern&);
 	Intern&	operator=(const Intern &);
 	~Intern();
 	Form* makeForm(std::string name, std::string target);
+	class	UnknownFormException : public std::exception
+	{
+	public:
+		virtual const char* what() const throw();
+	};
 };
 
 #endif
