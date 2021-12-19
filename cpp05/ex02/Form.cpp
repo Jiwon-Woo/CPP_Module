@@ -2,12 +2,12 @@
 
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return "Grade too high";
+	return "Forms's grade too high";
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return "Grade too low";
+	return "Forms's grade too low";
 }
 
 Form::Form() : name("defalut Form"), isSigned(false), signGrade(LOWEST_GRADE), excuteGrade(LOWEST_GRADE)
@@ -38,7 +38,7 @@ Form&	Form::operator=(const Form &)
 void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->signGrade)
-		throw Form::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->isSigned = true;
 }

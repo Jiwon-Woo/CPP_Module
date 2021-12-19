@@ -4,21 +4,15 @@
 # define C_GREN "\033[32m"
 # define C_RED  "\033[31m"
 
-class Bureaucrat::GradeTooHighException : public std::exception
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-public:
-	virtual const char* what() const _NOEXCEPT {
-		return "Grade too high";
-	}
-};
+	return "Bureaucrat's grade too high";
+}
 
-class Bureaucrat::GradeTooLowException : public std::exception
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
-public:
-	virtual const char* what() const _NOEXCEPT {
-		return "Grade too low";
-	}
-};
+	return "Bureaucrat's grade too low";
+}
 
 Bureaucrat::Bureaucrat() : name("default Bureaucrat"), grade(LOWEST_GRADE)
 {
@@ -84,8 +78,8 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << C_RED << "Bureaucrat <" << this->name << "> cannot signs Form <" << form.getName() << "> because ";
-		std::cerr << "<" << this->name << "> " << e.what() << "." << C_NRML << std::endl;
+		std::cerr << C_RED << "Bureaucrat <" << this->name << "> cannot signs Form <" << form.getName() << "> because ";
+		std::cerr << e.what() << "." << C_NRML << std::endl;
 	}
 }
 
@@ -100,8 +94,8 @@ void	Bureaucrat::executeForm(Form const & form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << C_RED << "Bureaucrat <" << this->name << "> cannot execute Form <" << form.getName() << "> because ";
-		std::cerr << "<" << this->name << "> " << e.what() << "." << C_NRML << std::endl;
+		std::cerr << C_RED << "Bureaucrat <" << this->name << "> cannot execute Form <" << form.getName() << "> because ";
+		std::cerr << e.what() << "." << C_NRML << std::endl;
 	}
 }
 

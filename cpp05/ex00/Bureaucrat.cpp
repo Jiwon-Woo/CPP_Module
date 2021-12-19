@@ -1,20 +1,14 @@
 #include "Bureaucrat.hpp"
 
-class Bureaucrat::GradeTooHighException : public std::exception
+const char*	Bureaucrat::GradeTooHighException::what() const throw()
 {
-public:
-	virtual const char* what() const _NOEXCEPT {
-		return "Grade too high";
-	}
-};
+	return "Bureaucrat's grade too high";
+}
 
-class Bureaucrat::GradeTooLowException : public std::exception
+const char*	Bureaucrat::GradeTooLowException::what() const throw()
 {
-public:
-	virtual const char* what() const _NOEXCEPT {
-		return "Grade too low";
-	}
-};
+	return "Bureaucrat's grade too low";
+}
 
 Bureaucrat::Bureaucrat() : name("default Bureaucrat"), grade(LOWEST_GRADE)
 {
