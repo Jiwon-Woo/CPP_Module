@@ -23,25 +23,24 @@ Brain::~Brain()
 Brain&	Brain::operator=(const Brain &brain)
 {
 	std::cout << "Assignation operator of Brain" << std::endl;
-	for (unsigned long i = 0; i < brain.idea_num; i++)
+	for (unsigned int i = 0; i < 100; i++)
 		this->ideas[i] = brain.ideas[i];
-	for (unsigned long i = brain.idea_num; i < idea_num; i++)
-		this->ideas[i] = "";
-	idea_num = brain.idea_num;
+	this->idea_num = brain.idea_num;
 	return (*this);
 }
 
 void	Brain::addIdea(std::string idea)
 {
 	std::cout << C_GREN << ">> add " << C_NRML << idea << C_GREN <<
-		" to ideas[" << C_NRML << idea_num << C_GREN "]" << C_NRML << std::endl;
-	this->ideas[idea_num] = idea;
-	idea_num = (idea_num + 1) % 100;
+		" to ideas[" << C_NRML << idea_num % 100 << C_GREN "]" << C_NRML << std::endl;
+	this->ideas[idea_num % 100] = idea;
+	idea_num += 1;
 }
 
 void	Brain::showIdea() const
 {
 	std::cout << C_AQUA << ">> show ideas of Brain <<" << C_NRML << std::endl;
-	for (unsigned long i = 0; i < idea_num; i++)
+	unsigned int num = idea_num < 100 ? idea_num : 100;
+	for (unsigned int i = 0; i < num ; i++)
 		std::cout << "ideas[" << i << "] : " << this->ideas[i] << std::endl;
 }
