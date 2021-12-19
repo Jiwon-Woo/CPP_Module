@@ -66,7 +66,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		if (target_file.fail())
 			std::cerr << "Fail to open the file: " << this->target + "_shrubbery" << std::endl;
 		else
+		{
+			std::cout << "Success to write ASCII trees inside <" << this->target + "_shrubbery>" << std::endl;
 			write_ascii_tree(target_file);
+		}
 	}
 }
 

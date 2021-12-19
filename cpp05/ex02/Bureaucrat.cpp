@@ -95,7 +95,7 @@ void	Bureaucrat::executeForm(Form const & form)
 	{
 		form.execute(*this);
 		std::cout << C_GREN << 
-			"Bureaucrat <" << this->name << "> execute Form <" << form.getName() << ">"
+			"Bureaucrat <" << this->name << "> executes Form <" << form.getName() << ">"
 			<< C_NRML << std::endl;
 	}
 	catch(const std::exception& e)

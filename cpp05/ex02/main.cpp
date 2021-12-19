@@ -1,21 +1,26 @@
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-int		main()
+int	main()
 {
-	Bureaucrat	bureaucratX("X", 50);
-	Bureaucrat	bureaucratY("Y", 138);
-	ShrubberyCreationForm	defaultForm = ShrubberyCreationForm();
-	ShrubberyCreationForm	formA("A");
-	ShrubberyCreationForm	formB("B");
+	Bureaucrat	bureaucratX("X", 5);
+	Bureaucrat	bureaucratY("Y", 50);
+	Bureaucrat	bureaucratZ("Z", 138);
+	ShrubberyCreationForm	defaultSC = ShrubberyCreationForm();
+	ShrubberyCreationForm	formSC("SC");
+	RobotomyRequestForm	defaultRR = RobotomyRequestForm();
+	RobotomyRequestForm	formRR("RR");
 
 	std::cout << std::endl << "#############################" << std::endl;
 	std::cout << "# overload operator << test #" << std::endl;
 	std::cout << "#############################" << std::endl << std::endl;
 	std::cout << bureaucratX << std::endl;
 	std::cout << bureaucratY << std::endl;
-	std::cout << defaultForm << std::endl;
-	std::cout << formA << std::endl;
-	std::cout << formB << std::endl;
+	std::cout << bureaucratZ << std::endl;
+	std::cout << defaultSC << std::endl;
+	std::cout << formSC << std::endl;
+	std::cout << defaultRR << std::endl;
+	std::cout << formRR << std::endl;
 	std::cout << std::endl;
 
 	std::cout << "###################" << std::endl;
@@ -23,9 +28,15 @@ int		main()
 	std::cout << "###################" << std::endl << std::endl;
 	try 
 	{
-		std::cout << bureaucratX << std::endl << std::endl;
-		std::cout << formA << std::endl;
-		bureaucratX.executeForm(formA);
+		bureaucratY.executeForm(formSC);
+		std::cout << std::endl;
+		bureaucratX.executeForm(formRR);
+		std::cout << std::endl;
+		bureaucratX.executeForm(defaultRR);
+		std::cout << std::endl;
+		bureaucratX.executeForm(formRR);
+		std::cout << std::endl;
+		bureaucratX.executeForm(defaultRR);
 	} 
 	catch (std::exception &e)
 	{
@@ -38,31 +49,13 @@ int		main()
 	std::cout << "################" << std::endl;
 	try 
 	{
-		std::cout << bureaucratY << std::endl << std::endl;
-		std::cout << formA << std::endl;
-		bureaucratY.executeForm(formA);
-		bureaucratY.executeForm(defaultForm);
+		bureaucratZ.executeForm(formSC);
+		std::cout << std::endl;
+		bureaucratY.executeForm(formRR);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl << std::endl;
-
-	std::cout << "###################" << std::endl;
-	std::cout << "# Success execute #" << std::endl;
-	std::cout << "###################" << std::endl << std::endl;
-	try 
-	{
-		bureaucratY.incrementGrade();
-		std::cout << bureaucratY << std::endl << std::endl;
-		std::cout << formB << std::endl;
-		bureaucratY.executeForm(formB);
-		bureaucratY.executeForm(defaultForm);
-	} 
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
 }

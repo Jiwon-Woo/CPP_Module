@@ -2,6 +2,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "Form.hpp"
+# include <random>
 
 class RobotomyRequestForm : public Form
 {
