@@ -2,6 +2,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "Form.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public Form
 {
@@ -10,10 +11,11 @@ private:
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &pp);
+	ShrubberyCreationForm(const ShrubberyCreationForm &sc);
 	ShrubberyCreationForm&	operator=(const ShrubberyCreationForm &);
 	~ShrubberyCreationForm();
 	void	execute(Bureaucrat const & executor) const;
-}
+	std::string getTarget() const;
+};
 
 #endif

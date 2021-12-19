@@ -3,8 +3,8 @@ CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
-SOURCE = Bureaucrat.cpp Form.cpp
-HEADER = Bureaucrat.hpp	Form.hpp
+SOURCE = Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+HEADER = Bureaucrat.hpp	Form.hpp ShrubberyCreationForm.hpp
 OBJECT = $(SOURCE:.cpp=.o)
 
 $(NAME): $(MAIN) $(OBJECT)
@@ -14,9 +14,9 @@ $(OBJECT): $(SOURCE) $(HEADER)
 
 all : $(NAME)
 clean:
-	$(RM) $(OBJECT)
+	$(RM) $(OBJECT) $(addsuffix _shrubbery, *)
 fclean:
-	$(RM) $(OBJECT) $(NAME)
+	$(RM) $(OBJECT) $(addsuffix _shrubbery, *) $(NAME)
 re:	fclean all
 
 .PHONY: all clean fclean re

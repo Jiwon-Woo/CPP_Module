@@ -89,6 +89,22 @@ void	Bureaucrat::signForm(Form &form)
 	}
 }
 
+void	Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << C_GREN << 
+			"Bureaucrat <" << this->name << "> execute Form <" << form.getName() << ">"
+			<< C_NRML << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << C_RED << "Bureaucrat <" << this->name << "> cannot execute Form <" << form.getName() << "> because ";
+		std::cerr << "<" << this->name << "> " << e.what() << "." << C_NRML << std::endl;
+	}
+}
+
 std::ostream&	operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 {
 	os << ">> describes the bureaucrat << \n";
