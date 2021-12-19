@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-int		main()
+int	main()
 {
 	Bureaucrat	bureaucratX("X", 50);
 	Form	defaultForm = Form();

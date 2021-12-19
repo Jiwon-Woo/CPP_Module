@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-int		main()
+int	main()
 {
 	Bureaucrat	defaultBureaucrat = Bureaucrat();
 	Bureaucrat	a("a");
