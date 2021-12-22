@@ -1,6 +1,6 @@
 NAME = interface
 CXX = clang++
-CXXFLAGS = -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS = -std=c++98 -W -Wall -Werror -Wextra
 RM = rm -rf
 MAIN = main.cpp
 SOURCE = AMateria.cpp Character.cpp MateriaSource.cpp Ice.cpp Cure.cpp
