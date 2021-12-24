@@ -1,4 +1,6 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 
 int	is_valid_arg(std::string str)
 {
@@ -39,16 +41,18 @@ void	print_char(std::string str)
 	std::cout << "char: ";
 	try
 	{
-		double	str_to_double = std::stod(str);
-		int	str_to_int = (int)str_to_double;
+		double	str_to_d = std::stod(str);
+		int	str_to_i = (int)str_to_d;
 		std::string status;
 
-		if (str_to_double - str_to_int)
+		if (std::isnan(str_to_d) || std::isinf(str_to_d))
 			status = "impossible";
-		else if (0 <= str_to_int && str_to_int <= 32)
+		else if (str_to_d - str_to_i)
+			status = "impossible";
+		else if (0 <= str_to_i && str_to_i <= 32)
 			status = "Non displayable";
-		else if (32 <= str_to_int && str_to_int <= 126)
-			status = "'" + std::string(1, str_to_int) + "'";
+		else if (32 <= str_to_i && str_to_i <= 126)
+			status = "'" + std::string(1, str_to_i) + "'";
 		else
 			status = "impossible";
 		std::cout << status << std::endl;
@@ -64,13 +68,12 @@ void	print_int(std::string str)
 	std::cout << "int: ";
 	try
 	{
-		std::string status;
+		double str_to_d = std::stod(str);
 
-		if (str == "nan" || str == "nanf" || str == "inf" || str == "inff"
-			|| str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff")
+		if (std::isnan(str_to_d) || std::isinf(str_to_d))
 			std::cout << "impossible" << std::endl;
 		else
-			std::cout << (int)std::stod(str) << std::endl;
+			std::cout << (int)str_to_d << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -83,8 +86,10 @@ void	print_float(std::string str)
 	std::cout << "float: ";
 	try
 	{
-		if (str == "inf" || str == "inff" || str == "+inf" || str == "+inff")
-			std::cout << "+inff" << std::endl;
+		float str_to_f = std::stof(str);
+
+		if (std::isinf(str_to_f))
+			std::cout << std::showpos << str_to_f << std::noshowpos << "f" << std::endl;
 		else
 			std::cout << std::stof(str) << "f" << std::endl;
 	}
@@ -99,8 +104,10 @@ void	print_double(std::string str)
 	std::cout << "double: ";
 	try
 	{
-		if (str == "inf" || str == "inff" || str == "+inf" || str == "+inff")
-			std::cout << "+inf" << std::endl;
+		double str_to_d = std::stod(str);
+
+		if (std::isinf(str_to_d))
+			std::cout << std::showpos << str_to_d << std::noshowpos << std::endl;
 		else
 			std::cout << std::stod(str) << std::endl;
 	}

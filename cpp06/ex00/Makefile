@@ -3,20 +3,13 @@ CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 MAIN = main.cpp
-SOURCE = 
-HEADER = 
-OBJECT = $(SOURCE:.cpp=.o)
 
-$(NAME): $(MAIN) $(OBJECT)
-	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME) $(OBJECT)
-$(OBJECT): $(SOURCE) $(HEADER)
-	$(CXX) $(CXXFLAGS) -c $(SOURCE)
+$(NAME): $(MAIN)
+	$(CXX) $(MAIN) $(CXXFLAGS) -o $(NAME)
 
 all : $(NAME)
 clean:
-	$(RM) $(OBJECT)
-fclean:
-	$(RM) $(OBJECT) $(NAME)
+	$(RM) $(NAME)
 re:	fclean all
 
 .PHONY: all clean fclean re
