@@ -2,29 +2,15 @@
 #include <iomanip>
 #include <cmath>
 
-int	is_valid_arg(std::string str)
+int	is_valid_arg(char* str)
 {
-	int	dot = 0;
+	char	*pos = 0;
+	double str_to_d = std::strtod(str, &pos);
 
-	if (str == "nan" || str == "nanf" || str == "inf" || str == "inff"
-		|| str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff")
+	std::string str_pos = static_cast<std::string>(pos);
+	if (str_pos.length() == 0 || (str_pos.length() == 1 && str_pos[0] == 'f'))
 		return 0;
-
-	for (size_t i = 0; i < str.length(); i++)
-	{
-		if (i == 0 && (str[i] == '-' || str[i] == '+'))
-			continue;
-		if (str[i] < '0' || str[i] > '9')
-		{
-			if (i == str.length() - 1 && str[i] == 'f')
-				return 0;
-			else if (str[i] == '.' && dot == 0)
-				dot++;
-			else
-				return 1;
-		}
-	}
-	return 0;
+	return 1;
 }
 
 int	print_all_impossible()
@@ -42,7 +28,7 @@ void	print_char(std::string str)
 	try
 	{
 		double	str_to_d = std::stod(str);
-		int	str_to_i = (int)str_to_d;
+		int	str_to_i = static_cast<int>(str_to_d);
 		std::string status;
 
 		if (std::isnan(str_to_d) || std::isinf(str_to_d))
@@ -73,7 +59,7 @@ void	print_int(std::string str)
 		if (std::isnan(str_to_d) || std::isinf(str_to_d))
 			std::cout << "impossible" << std::endl;
 		else
-			std::cout << (int)str_to_d << std::endl;
+			std::cout << static_cast<int>(str_to_d) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -124,11 +110,10 @@ int	main(int argc, char **argv)
 
 	for (int i = 1; i < argc; i++)
 	{
-		std::string str(argv[i]);
-
-		if (is_valid_arg(str))
+		if (is_valid_arg(argv[i]))
 			return (print_all_impossible());
 		
+		std::string str = static_cast<std::string>(argv[i]);
 		print_char(str);
 		print_int(str);
 		print_float(str);
