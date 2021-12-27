@@ -5,8 +5,8 @@
 int	is_valid_arg(char* str)
 {
 	char	*pos = 0;
-	double str_to_d = std::strtod(str, &pos);
-
+	
+	std::strtod(str, &pos);
 	std::string str_pos = static_cast<std::string>(pos);
 	if (str_pos.length() == 0 || (str_pos.length() == 1 && str_pos[0] == 'f'))
 		return 0;
@@ -35,7 +35,7 @@ void	print_char(std::string str)
 			status = "impossible";
 		else if (str_to_d - str_to_i)
 			status = "impossible";
-		else if (0 <= str_to_i && str_to_i <= 32)
+		else if ((0 <= str_to_i && str_to_i <= 32) || str_to_i == 127)
 			status = "Non displayable";
 		else if (32 <= str_to_i && str_to_i <= 126)
 			status = "'" + std::string(1, str_to_i) + "'";
