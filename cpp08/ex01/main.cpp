@@ -2,6 +2,7 @@
 
 int main()
 {
+	srand(time(NULL));
 	Span sp = Span(10);
 
 	std::cout << std::endl;
@@ -63,6 +64,16 @@ int main()
 
 	std::cout << std::endl;
 	sp.showInfo();
+	std::cout << std::endl;
+
+	Span big = Span(20000);
+	big.addRadomNumbers(10000, -2000, 20000);
+
+	std::cout << "shortestSpan() : " << big.shortestSpan() << std::endl;
+	std::cout << "longestSpan()  : " << big.longestSpan() << std::endl;
+
+	std::cout << std::endl;
+	big.showInfo();
 	std::cout << std::endl;
 
 	return 0;

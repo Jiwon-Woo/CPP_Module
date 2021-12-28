@@ -40,6 +40,15 @@ void	Span::addNumber(int num)
 	store.push_back(num);
 }
 
+void	Span::addRadomNumbers(unsigned int numbers, int begin, int end)
+{
+	int	range = std::abs(end - begin) + 1;
+	for (unsigned int i = 0; i < numbers; i++)
+	{
+		addNumber(rand() % range + std::min(begin, end));
+	}
+}
+
 unsigned int	Span::shortestSpan()
 {
 	if (store.size() <= 1)

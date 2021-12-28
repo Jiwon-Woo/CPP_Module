@@ -16,6 +16,7 @@ public:
 	Span& operator=(const Span& span);
 	~Span();
 	void	addNumber(int num);
+	void	addRadomNumbers(unsigned int numbers, int begin, int end);
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
 	unsigned int	getLimit() const;
