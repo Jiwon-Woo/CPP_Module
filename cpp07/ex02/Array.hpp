@@ -1,14 +1,12 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-#include <iostream>
-
 template <typename T>
 class Array
 {
 private:
-	T* arr;
 	unsigned int	arr_size;
+	T* arr;
 public:
 	Array();
 	Array(unsigned int n);
@@ -20,20 +18,19 @@ public:
 };
 
 template<typename T>
-Array<T>::Array() : arr(new T[0]), arr_size(0)
+Array<T>::Array() : arr_size(0), arr(new T[0])
 {
 }
 
 template<typename T>
-Array<T>::Array(unsigned int n) : arr(new T[n]), arr_size(n)
+Array<T>::Array(unsigned int n) : arr_size(n), arr(new T[n])
 {
 }
 
 template<typename T>
 Array<T>&	Array<T>::operator=(const Array<T> &array)
 {
-	if (this->arr)
-		delete[] arr;
+	delete[] arr;
 	this->arr_size = array.size();
 	this->arr = new T[this->arr_size];
 	for (unsigned int i = 0; i < this->arr_size; i++)
@@ -42,7 +39,7 @@ Array<T>&	Array<T>::operator=(const Array<T> &array)
 }
 
 template<typename T>
-Array<T>::Array(const Array<T>& array)
+Array<T>::Array(const Array<T>& array): arr_size(array.size()), arr(new T[arr_size])
 {
 	*this = array;
 }
