@@ -40,15 +40,6 @@ void	Span::addNumber(int num)
 	store.push_back(num);
 }
 
-void	Span::addRadomNumbers(unsigned int numbers, int begin, int end)
-{
-	int	range = std::abs(end - begin) + 1;
-	for (unsigned int i = 0; i < numbers; i++)
-	{
-		addNumber(rand() % range + std::min(begin, end));
-	}
-}
-
 unsigned int	Span::shortestSpan()
 {
 	if (store.size() <= 1)
@@ -70,10 +61,9 @@ unsigned int	Span::longestSpan()
 {
 	if (store.size() <= 1)
 		throw Span::NumberTooFewException();
-
-	std::vector<int>	copy(store);
-	std::sort(copy.begin(), copy.end());
-	return (copy[store.size() - 1] - copy[0]);
+	int	max = *std::max_element(store.begin(), store.end());
+	int	min = *std::min_element(store.begin(), store.end());
+	return max - min;
 }
 
 unsigned int	Span::getLimit() const

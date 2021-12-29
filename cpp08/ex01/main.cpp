@@ -3,7 +3,7 @@
 int main()
 {
 	srand(time(NULL));
-	Span sp = Span(10);
+	Span sp = Span(20);
 
 	std::cout << std::endl;
 	sp.showInfo();
@@ -53,28 +53,31 @@ int main()
 	std::cout << "shortestSpan() : " << sp.shortestSpan() << std::endl;
 	std::cout << "longestSpan()  : " << sp.longestSpan() << std::endl;
 
+	std::cout << std::endl;
+	sp.showInfo();
+	std::cout << std::endl;
+
+	std::vector<int>	v(5, 10);
+
+	sp.addNumber(std::begin(v), std::end(v));
+	std::cout << std::endl;
+	sp.showInfo();
+	std::cout << std::endl;
+
+	int	a[5] = { 1, 2, 3, 4, 5 };
+	sp.addNumber(a, a + 5);
+
+	std::cout << std::endl;
+	sp.showInfo();
+	std::cout << std::endl;
+
 	try
 	{
 		sp.addNumber(1);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << '\n' << e.what() << '\n';
+		std::cerr << '\n' << e.what() << "\n\n";
 	}
-
-	std::cout << std::endl;
-	sp.showInfo();
-	std::cout << std::endl;
-
-	Span big = Span(20000);
-	big.addRadomNumbers(10000, -2000, 20000);
-
-	std::cout << "shortestSpan() : " << big.shortestSpan() << std::endl;
-	std::cout << "longestSpan()  : " << big.longestSpan() << std::endl;
-
-	std::cout << std::endl;
-	big.showInfo();
-	std::cout << std::endl;
-
 	return 0;
 }

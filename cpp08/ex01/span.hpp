@@ -16,7 +16,10 @@ public:
 	Span& operator=(const Span& span);
 	~Span();
 	void	addNumber(int num);
-	void	addRadomNumbers(unsigned int numbers, int begin, int end);
+	template <typename T>	void addNumber(T begin, T end) {
+		for (T it = begin; it != end; it++)
+			addNumber(*it);
+	}
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
 	unsigned int	getLimit() const;
