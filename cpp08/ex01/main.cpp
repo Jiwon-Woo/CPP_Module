@@ -53,13 +53,9 @@ int main()
 	std::cout << "shortestSpan() : " << sp.shortestSpan() << std::endl;
 	std::cout << "longestSpan()  : " << sp.longestSpan() << std::endl;
 
-	std::cout << std::endl;
-	sp.showInfo();
-	std::cout << std::endl;
-
 	std::vector<int>	v(5, 10);
 
-	sp.addNumber(std::begin(v), std::end(v));
+	sp.addNumber(v.begin(), v.end());
 	std::cout << std::endl;
 	sp.showInfo();
 	std::cout << std::endl;
@@ -77,7 +73,12 @@ int main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << '\n' << e.what() << "\n\n";
+		std::cerr << e.what() << '\n';
 	}
+
+	std::cout << std::endl;
+	sp.showInfo();
+	std::cout << std::endl;
+	
 	return 0;
 }
