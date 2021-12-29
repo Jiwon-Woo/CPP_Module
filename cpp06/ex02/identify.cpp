@@ -42,7 +42,7 @@ void	identify(Base* p)
 
 void	identify(Base& p)
 {
-	std::cout << "The real type of Base* is ";
+	std::cout << "The real type of Base& is ";
 	try
 	{
 		A& a = dynamic_cast<A&>(p);
