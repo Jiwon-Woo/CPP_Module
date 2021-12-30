@@ -1,37 +1,45 @@
 #include "iter.hpp"
 
-int	func(int i)
+class Awesome
 {
-	return i + 1;
+public:
+	Awesome( void ) : _n( 42 ) { return; }
+	int get( void ) const { return this->_n; }
+private:
+	int _n;
+};
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+
+template< typename T >
+void print( T const & x ) { std::cout << x << std::endl; return; }
+
+template< typename T >
+void print2( T const & x ) { std::cout << x << " "; return; }
+
+template< typename T >
+void	add(T const & t)
+{
+	const_cast<T &>(t)++;
 }
 
-// char	func(char i)
-// {
-// 	return i + 1;
-// }
+int main() {
+	int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+	char tab1[] = "Hello world!";
+	Awesome tab2[5];
 
-int main(void)
-{
-	{
-		int arr[12] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+	iter( tab, 5, print );
+	iter( tab, 5, add );
+	iter( tab, 5, add );
+	iter( tab, 5, print2 );
+	std::cout << std::endl;
 
-		for (int i = 0; i < 12; i++)
-			std::cout << arr[i] << " ";
-		std::cout << std::endl;
-		iter(arr, sizeof(arr)/sizeof(arr[0]), func);
-		for (int i = 0; i < 12; i++)
-			std::cout << arr[i] << " ";
-		std::cout << std::endl;
-	}
-	// {
-	// 	char str[] = "Hello world!";
+	iter( tab1, 12, print2);
+	std::cout << std::endl;
+	iter( tab1, 12, add );
+	iter( tab1, 12, print2);
+	std::cout << std::endl;
 
-	// 	for (int i = 0; i < 12; i++)
-	// 		std::cout << str[i] << " ";
-	// 	std::cout << std::endl;
-	// 	iter(str, sizeof(str)/sizeof(str[0]), func);
-	// 	for (int i = 0; i < 12; i++)
-	// 		std::cout << str[i] << " ";
-	// 	std::cout << std::endl;
-	// }
+	iter( tab2, 5, print );
+
+	return 0;
 }
