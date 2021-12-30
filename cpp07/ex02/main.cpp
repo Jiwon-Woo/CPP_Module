@@ -99,7 +99,7 @@ int main(int, char**)
 			std::cerr << e.what() << '\n';
 		}
 
-		const Array<int> copy(nine);
+		Array<int> copy = Array<int>(nine);
 		std::cout << "\n\n\033[36m>> Copy by Array<int> copy = Array<int>(nine) <<\033[0m\n\n";
 		std::cout << "copy.size() : " << copy.size() << std::endl;
 		std::cout << "copy.size() : " << copy.size() << std::endl;
