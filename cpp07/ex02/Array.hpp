@@ -11,7 +11,7 @@ public:
 	Array();
 	Array(unsigned int n);
 	Array<T>&	operator=(const Array<T> &array);
-	T&	operator[](const unsigned int index);
+	T&	operator[](const unsigned int index) const;
 	Array(const Array<T>& array);
 	unsigned int	size() const;
 	~Array();
@@ -45,7 +45,7 @@ Array<T>::Array(const Array<T>& array): arr_size(array.size()), arr(new T[arr_si
 }
 
 template<typename T>
-T&	Array<T>::operator[](const unsigned int index)
+T&	Array<T>::operator[](const unsigned int index) const
 {
 	if (this->arr_size <= index)
 		throw std::exception();
